@@ -12,7 +12,7 @@ Route::get('/', [IndexController::class, 'index']);
 
 use App\Http\Controllers\DonacionController;
 
-
+//Configuracion de Rutas
 Route::get('/FormularioDonacion', [DonacionController::class, 'formulario'])->name('donacion.formulario');
 Route::post('/FormularioDonacion', [DonacionController::class, 'procesar'])->name('donacion.procesar');
 Route::get('/FormularioDonacion', [DonacionController::class, 'mostrarFormulario'])->name('donacion.formulario');
@@ -28,6 +28,11 @@ use App\Http\Controllers\Admin\DashboardController;
 Route::middleware('adminAuth')->group(function () {
     Route::get('/admin/donaciones', [DashboardController::class, 'index'])->name('admin.donaciones');
 });
+
+Route::get('/asociar-tarjeta', [DonacionController::class, 'asociarTarjeta']);
+
+Route::get('/crear-cliente', [DonacionController::class, 'crearCliente']);
+
 
 
 
